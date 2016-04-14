@@ -1,4 +1,4 @@
-package read;
+package ua.com.anagram.read;
 
 import java.util.ArrayList;
 
