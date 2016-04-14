@@ -1,11 +1,11 @@
 # Anagrams Algorithm
-The final project **group №8** 
+The final project for GoIT, **group №8** 
 
-Search anagrams of the words entered from the console. Write anagrams in the file or show in the console.
+Search [anagrams](https://en.wikipedia.org/wiki/Anagram) of the words entered from the console. Write anagrams in the file or show in the console.
 
  Authors:
-* Valentin Vrakin 
-* Konstantin Petrov
+* [Valentin Vrakin](https://github.com/vvo12015) 
+* [Konstantin Petrov](https://github.com/0k6r)
 * Roman Burko
 * Dmytro Olshanskyi
 * Yurok Andrey
