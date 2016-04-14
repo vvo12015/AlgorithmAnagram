@@ -34,7 +34,7 @@ public class FileTxtReader implements Reader {
         } catch (IOException e) {
             System.err.println("Error reading file");
         }
-
+//
         return wordsList;
 
     }
