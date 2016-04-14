@@ -3,9 +3,9 @@ package ua.com.anagram.read;
 import java.io.*;
 import java.util.ArrayList;
 
-public class FileTxtReader implements Reader {
+public class FileReader implements Reader {
 
-    public FileTxtReader(String fileName) {
+    public FileReader(String fileName) {
         this.fileName = fileName;
     }
 
@@ -26,7 +26,7 @@ public class FileTxtReader implements Reader {
 
         String s;
         try {
-            try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            try (BufferedReader reader = new BufferedReader(new java.io.FileReader(fileName))) {
                 while ((s = reader.readLine()) != null) {
                     wordsList.add(s);
                 }
