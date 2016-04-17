@@ -22,11 +22,9 @@ public class AlgorithmAnagram {
             }
         }
 
-
-
         for (Map.Entry<String, List<String>> entry : map.entrySet()) {
             result.addAll(entry.getValue());
-            result.add("\r\n");
+            result.add("\n");
         }
             return result;
         }
@@ -37,38 +35,29 @@ public class AlgorithmAnagram {
         return new String(a);
     }
 
-    private static Map<String, List<String>> sortMap (Map<String, List<String>> map) {
-        Map<String, List<String>> sortedMap = new HashMap<>();
-
-
-
-        return sortedMap;
-    }
-
-    public static void main(String[] args) {
-
-        List<String> list = new ArrayList<>();
-        list.add("кат");
-        list.add("мама");
-        list.add("акт");
-        list.add("рама");
-        list.add("шина");
-        list.add("амам");
-        list.add("ниша");
-
-
-        System.out.print("Text/ list of words: ");
-        for (String s : list) {
-            System.out.print(s + " ");
-        }
-        System.out.println();
-
-        AlgorithmAnagram obj = new AlgorithmAnagram();
-        List<String> listTest = obj.find(list);
-        System.out.println("\nAnagrams: ");
-        for (String s : listTest) {
-            System.out.print(s + " ");
-        }
-    }
+//    public static void main(String[] args) {
+//
+//        List<String> list = new ArrayList<>();
+//        list.add("кат");
+//        list.add("мама");
+//        list.add("акт");
+//        list.add("рама");
+//        list.add("шина");
+//        list.add("амам");
+//        list.add("ниша");
+//
+//        System.out.print("Text/ list of words: ");
+//        for (String s : list) {
+//            System.out.print(s + " ");
+//        }
+//        System.out.println();
+//
+//        AlgorithmAnagram obj = new AlgorithmAnagram();
+//        List<String> listTest = obj.find(list);
+//        System.out.println("\nAnagrams: ");
+//        for (String s : listTest) {
+//            System.out.print(s + " ");
+//        }
+//    }
 }
 

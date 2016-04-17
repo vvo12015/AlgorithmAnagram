@@ -35,6 +35,7 @@ class Prepare {
     }
 
     private boolean isWord(String name) {
+
         char[] chars = name.toCharArray();
 
         for (char c : chars) {
