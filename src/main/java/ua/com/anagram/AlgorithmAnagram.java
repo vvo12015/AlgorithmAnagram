@@ -4,40 +4,17 @@ import java.util.*;
 
 public class AlgorithmAnagram {
 
-    public List<String> result = new ArrayList<>();
+    private final List<String> result = new ArrayList<>();
 
-    public Map<String, List<String>> map = new HashMap<String, List<String>>();
+    private final Map<String, List<String>> map = new HashMap<>();
 
-    static List<String> listDemo = new ArrayList<>();
-    static  {
-        listDemo.add("кат");
-        listDemo.add("мама");
-        listDemo.add("акт");
-        listDemo.add("рама");
-        listDemo.add("шина");
-        listDemo.add("амам");
-        listDemo.add("ниша");
-    }
-
-    public static void main(String[] args) {
-        for (String s : listDemo) {
-            System.out.print(s + " ");
-        }
-        System.out.println();
-
-        AlgorithmAnagram obj = new AlgorithmAnagram();
-        List<String> listTest = obj.find(listDemo);
-        System.out.println(listTest);
-    }
-
-    public List<String> find (List<String> list) {
+    private List<String> find(List<String> list) {
 
         for (String index : list) {
-            String sortedWord = sort(index);
-            System.out.println("sortedWord   " + sortedWord);
+            String sortedWord = sortWord(index);
             List<String> anagrams = map.get(sortedWord);
             if (anagrams == null) {
-                List <String> anagramsNew = new ArrayList<>();
+                List<String> anagramsNew = new ArrayList<>();
                 anagramsNew.add(index);
                 map.put(sortedWord, anagramsNew);
             } else {
@@ -45,22 +22,53 @@ public class AlgorithmAnagram {
             }
         }
 
-        for (Map.Entry<String, List<String>> entry: map.entrySet()) {
-            System.out.println(entry.getKey() + ",,,,,,,,," + entry.getValue());
+
+
+        for (Map.Entry<String, List<String>> entry : map.entrySet()) {
             result.addAll(entry.getValue());
-            result.add("");
+            result.add("\r\n");
+        }
+            return result;
         }
 
-        return result;
-    }
-
-    private static String sort (String s) {
+    private static String sortWord(String s) {
         char[] a = s.toCharArray();
         Arrays.sort(a);
         return new String(a);
     }
-}
 
-//  анаграммы (слова с одинаковым набором букв).
-// Текст: кат мама акт рама шина амам ниша. Анаграммы: кат акт; мама амам; шина ниша;..)
+    private static Map<String, List<String>> sortMap (Map<String, List<String>> map) {
+        Map<String, List<String>> sortedMap = new HashMap<>();
+
+
+
+        return sortedMap;
+    }
+
+    public static void main(String[] args) {
+
+        List<String> list = new ArrayList<>();
+        list.add("кат");
+        list.add("мама");
+        list.add("акт");
+        list.add("рама");
+        list.add("шина");
+        list.add("амам");
+        list.add("ниша");
+
+
+        System.out.print("Text/ list of words: ");
+        for (String s : list) {
+            System.out.print(s + " ");
+        }
+        System.out.println();
+
+        AlgorithmAnagram obj = new AlgorithmAnagram();
+        List<String> listTest = obj.find(list);
+        System.out.println("\nAnagrams: ");
+        for (String s : listTest) {
+            System.out.print(s + " ");
+        }
+    }
+}
 
