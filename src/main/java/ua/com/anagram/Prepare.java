@@ -30,8 +30,8 @@ class Prepare {
     }
 
     public static boolean checkEnglish(String s){
-        final static int FIRST_ENGLISH_SYMBOL = 97;
-        final static int LAST_ENGLISH_SYMBOL = 122;
+        final int FIRST_ENGLISH_SYMBOL = 97;
+        final int LAST_ENGLISH_SYMBOL = 122;
 
         s = s.toLowerCase();
         for (int i = 0; i < s.length(); i++) {
@@ -43,8 +43,8 @@ class Prepare {
     }
 
     public static boolean checkRussian(String s){
-        final static int FIRST_RUSSIAN_SYMBOL = 224;
-        final static int RUSSIAN_SYMBOL_YO = 184;
+        final int FIRST_RUSSIAN_SYMBOL = 224;
+        final int RUSSIAN_SYMBOL_YO = 184;
 
         s = s.toLowerCase();
         for (int i = 0; i < s.length(); i++) {
@@ -56,13 +56,13 @@ class Prepare {
     }
 
     public static boolean checkUkrainian(String s){
-        final static int FIRST_RUSSIAN_SYMBOL = 224;
-        final static int TVERDYI_ZNAK = 184;
-        final static int OPERACIA_bl = 251;
-        final static int REVERSE_E = 253;
-        final static int UKRAINIAN_G = 180;
-        final static int UKRAINIAN_E = 186;
-        final static int UKRAINIAN_YI = 191;
+        final int FIRST_RUSSIAN_SYMBOL = 224;
+        final int TVERDYI_ZNAK = 184;
+        final int OPERACIA_bl = 251;
+        final int REVERSE_E = 253;
+        final int UKRAINIAN_G = 180;
+        final int UKRAINIAN_E = 186;
+        final int UKRAINIAN_YI = 191;
 
         s = s.toLowerCase();
         for (int i = 0; i < s.length(); i++) {
