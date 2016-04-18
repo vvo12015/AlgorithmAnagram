@@ -30,12 +30,25 @@ class Prepare {
     }
 
     public static boolean checkEnglish(String s){
-        final static int A = 97;
-        final static int Z = 122;
+        final static int FIRST_ENGLISH_SYMBOL = 97;
+        final static int LAST_ENGLISH_SYMBOL = 122;
 
         s = s.toLowerCase();
         for (int i = 0; i < s.length(); i++) {
-            if ((int)s[i] < A && (int)s[i] > Z) {
+            if ((int)s[i] < FIRST_ENGLISH_SYMBOL && (int)s[i] > LAST_ENGLISH_SYMBOL) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean checkRussian(String s){
+        final static int FIRST_RUSSIAN_SYMBOL = 224;
+        final static int LAST_RUSSIAN_SYMBOL = 255;
+
+        s = s.toLowerCase();
+        for (int i = 0; i < s.length(); i++) {
+            if ((int)s[i] < FIRST_RUSSIAN_SYMBOL && (int)s[i] > LAST_RUSSIAN_SYMBOL) {
                 return false;
             }
         }
