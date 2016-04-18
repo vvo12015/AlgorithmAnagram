@@ -2,15 +2,22 @@ package ua.com.anagram;
 
 import java.util.*;
 
-public class AlgorithmAnagram {
+public class AlgorithmAnagram implements Algorithm {
 
-    private final List<String> result = new ArrayList<>();
+    private final List<String> result;
+    private final Map<String, List<String>> map;
 
-    private final Map<String, List<String>> map = new HashMap<>();
+    public AlgorithmAnagram() {
+        this.result = new ArrayList<>();
+        this.map = new HashMap<>();
+    }
 
-    private List<String> find(List<String> list) {
-
-        for (String index : list) {
+    @Override
+    public List<String> execute(List<String> listToWorkWith) {
+        if (listToWorkWith == null || listToWorkWith.isEmpty()) {
+            return result;
+        }
+        for (String index : listToWorkWith) {
             String sortedWord = sortWord(index);
             List<String> anagrams = map.get(sortedWord);
             if (anagrams == null) {
@@ -26,8 +33,8 @@ public class AlgorithmAnagram {
             result.addAll(entry.getValue());
             result.add("\n");
         }
-            return result;
-        }
+        return result;
+    }
 
     private static String sortWord(String s) {
         char[] a = s.toCharArray();
@@ -35,29 +42,30 @@ public class AlgorithmAnagram {
         return new String(a);
     }
 
-//    public static void main(String[] args) {
-//
-//        List<String> list = new ArrayList<>();
-//        list.add("кат");
-//        list.add("мама");
-//        list.add("акт");
-//        list.add("рама");
-//        list.add("шина");
-//        list.add("амам");
-//        list.add("ниша");
-//
-//        System.out.print("Text/ list of words: ");
-//        for (String s : list) {
-//            System.out.print(s + " ");
-//        }
-//        System.out.println();
-//
-//        AlgorithmAnagram obj = new AlgorithmAnagram();
-//        List<String> listTest = obj.find(list);
-//        System.out.println("\nAnagrams: ");
-//        for (String s : listTest) {
-//            System.out.print(s + " ");
-//        }
-//    }
+
+    //    public static void main(String[] args) {
+    //
+    //        List<String> list = new ArrayList<>();
+    //        list.add("кат");
+    //        list.add("мама");
+    //        list.add("акт");
+    //        list.add("рама");
+    //        list.add("шина");
+    //        list.add("амам");
+    //        list.add("ниша");
+    //
+    //        System.out.print("Text/ list of words: ");
+    //        for (String s : list) {
+    //            System.out.print(s + " ");
+    //        }
+    //        System.out.println();
+    //
+    //        AlgorithmAnagram obj = new AlgorithmAnagram();
+    //        List<String> listTest = obj.execute(list);
+    //        System.out.println("\nAnagrams: ");
+    //        for (String s : listTest) {
+    //            System.out.print(s + " ");
+    //        }
+    //    }
 }
 
