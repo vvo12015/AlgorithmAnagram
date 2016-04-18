@@ -20,7 +20,7 @@ public class AlgorithmAnagram implements Algorithm {
         }
 
         for (String index : listToWorkWith) {
-            String sortedWord = sortWord(index);
+                String sortedWord = sortWord(index);
             List<String> anagrams = mapTemp.get(sortedWord);
             if (anagrams == null) {
                 List<String> anagramsNew = new ArrayList<>();

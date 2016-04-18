@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class FileReader implements Reader {
 
+    public static final String SPACE = " ";
     private String fileName;
 
     public FileReader(String fileName) {
@@ -20,7 +21,10 @@ public class FileReader implements Reader {
         try {
             try (BufferedReader reader = new BufferedReader(new java.io.FileReader(fileName))) {
                 while ((s = reader.readLine()) != null) {
-                    wordsList.add(s);
+                    for (String word :
+                            s.split(SPACE)) {
+                        wordsList.add(word);
+                    }
                 }
             }
         } catch (IOException e) {
