@@ -1,7 +1,6 @@
 package ua.com.anagram;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 class Prepare {
 
@@ -10,7 +9,7 @@ class Prepare {
     public List<String> prepare (List<String> list) {
 
         for (String word: list) {
-            if (isWord(word)) {
+            if (isWord(word) && !word.equals("")) {
                 preparedList.add(word.toLowerCase());
             }
         }
