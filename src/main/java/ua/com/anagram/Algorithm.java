@@ -1,8 +1,9 @@
 package ua.com.anagram;
 
 import java.util.List;
+import java.util.Map;
 
 public interface Algorithm {
 
-    List<String> execute(List<String> listToWorkWith);
+    Map<String, List<String>> execute(List<String> listToWorkWith);
 }

@@ -4,18 +4,16 @@ import java.util.*;
 
 public class AlgorithmAnagram implements Algorithm {
 
-    private final List<String> result;
     private final Map<String, List<String>> map;
 
     public AlgorithmAnagram() {
-        this.result = new ArrayList<>();
-        this.map = new HashMap<>();
+        this.map = Collections.emptyMap();
     }
 
     @Override
-    public List<String> execute(List<String> listToWorkWith) {
+    public Map<String, List<String>> execute(List<String> listToWorkWith) {
         if (listToWorkWith == null || listToWorkWith.isEmpty()) {
-            return result;
+            return map;
         }
         for (String index : listToWorkWith) {
             String sortedWord = sortWord(index);
@@ -29,11 +27,7 @@ public class AlgorithmAnagram implements Algorithm {
             }
         }
 
-        for (Map.Entry<String, List<String>> entry : map.entrySet()) {
-            result.addAll(entry.getValue());
-            result.add("\n");
-        }
-        return result;
+        return map;
     }
 
     private static String sortWord(String s) {
