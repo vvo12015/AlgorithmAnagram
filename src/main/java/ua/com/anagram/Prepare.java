@@ -35,7 +35,8 @@ class Prepare {
 
         s = s.toLowerCase();
         for (int i = 0; i < s.length(); i++) {
-            if ((int)s[i] < FIRST_ENGLISH_SYMBOL || (int)s[i] > LAST_ENGLISH_SYMBOL) {
+            int ch = (int)s.charAt(i);
+            if (ch < FIRST_ENGLISH_SYMBOL || ch > LAST_ENGLISH_SYMBOL) {
                 return false;
             }
         }
@@ -48,7 +49,8 @@ class Prepare {
 
         s = s.toLowerCase();
         for (int i = 0; i < s.length(); i++) {
-            if ((int)s[i] < FIRST_RUSSIAN_SYMBOL && (int)s[i] != RUSSIAN_SYMBOL_YO) {
+            int ch = (int)s.charAt(i);
+            if (ch < FIRST_RUSSIAN_SYMBOL && ch != RUSSIAN_SYMBOL_YO) {
                 return false;
             }
         }
@@ -66,13 +68,14 @@ class Prepare {
 
         s = s.toLowerCase();
         for (int i = 0; i < s.length(); i++) {
-            if ((int)s[i] < FIRST_RUSSIAN_SYMBOL
-                    && (int)s[i] != UKRAINIAN_E
-                    && (int)s[i] != UKRAINIAN_G
-                    && (int)s[i] != UKRAINIAN_YI
-                    || (int)s[i] == TVERDYI_ZNAK
-                    || (int)s[i] == OPERACIA_bl
-                    || (int)s[i] == REVERSE_E) {
+            int ch = (int)s.charAt(i);
+            if (ch < FIRST_RUSSIAN_SYMBOL
+                    && ch != UKRAINIAN_E
+                    && ch != UKRAINIAN_G
+                    && ch != UKRAINIAN_YI
+                    || ch == TVERDYI_ZNAK
+                    || ch == OPERACIA_bl
+                    || ch == REVERSE_E) {
                 return false;
             }
         }
