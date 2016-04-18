@@ -27,4 +27,8 @@ class Prepare {
         }
         return true;
     }
+
+    public static boolean checkEnglish(String s){
+        return true;
+    }
 }
