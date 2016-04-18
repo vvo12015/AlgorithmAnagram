@@ -35,7 +35,7 @@ class Prepare {
 
         s = s.toLowerCase();
         for (int i = 0; i < s.length(); i++) {
-            if ((int)s[i] < FIRST_ENGLISH_SYMBOL && (int)s[i] > LAST_ENGLISH_SYMBOL) {
+            if ((int)s[i] < FIRST_ENGLISH_SYMBOL || (int)s[i] > LAST_ENGLISH_SYMBOL) {
                 return false;
             }
         }
@@ -48,7 +48,7 @@ class Prepare {
 
         s = s.toLowerCase();
         for (int i = 0; i < s.length(); i++) {
-            if ((int)s[i] < FIRST_RUSSIAN_SYMBOL && (int)s[i] > LAST_RUSSIAN_SYMBOL) {
+            if ((int)s[i] < FIRST_RUSSIAN_SYMBOL || (int)s[i] > LAST_RUSSIAN_SYMBOL) {
                 return false;
             }
         }
