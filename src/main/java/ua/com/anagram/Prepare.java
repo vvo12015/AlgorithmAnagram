@@ -45,13 +45,15 @@ class Prepare {
     public static boolean checkRussian(String s){
         final static int FIRST_RUSSIAN_SYMBOL = 224;
         final static int LAST_RUSSIAN_SYMBOL = 255;
+        final static int RUSSIAN_SYMBOL_YO = 184;
 
         s = s.toLowerCase();
         for (int i = 0; i < s.length(); i++) {
-            if ((int)s[i] < FIRST_RUSSIAN_SYMBOL || (int)s[i] > LAST_RUSSIAN_SYMBOL) {
+            if ((int)s[i] < FIRST_RUSSIAN_SYMBOL && (int)s[i] != RUSSIAN_SYMBOL_YO) {
                 return false;
             }
         }
         return true;
     }
+
 }
