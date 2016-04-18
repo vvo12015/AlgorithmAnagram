@@ -3,6 +3,8 @@ package ua.com.anagram;
 import java.util.ArrayList;
 import java.util.List;
 
+import ua.com.anagram.exceptions.UnknownAlphabetException;
+
 class Prepare {
 
     private final List<String> preparedList = new ArrayList<>();

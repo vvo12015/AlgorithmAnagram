@@ -1,4 +1,4 @@
-package ua.com.anagram;
+package ua.com.anagram.exceptions;
 
 
 public class UnknownAlphabetException extends Throwable {

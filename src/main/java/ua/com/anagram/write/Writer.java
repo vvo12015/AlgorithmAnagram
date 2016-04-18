@@ -1,4 +1,4 @@
-package write;
+package ua.com.anagram.write;
 
 import java.util.ArrayList;
 

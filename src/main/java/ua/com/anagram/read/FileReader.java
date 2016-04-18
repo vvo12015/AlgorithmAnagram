@@ -5,20 +5,12 @@ import java.util.ArrayList;
 
 public class FileReader implements Reader {
 
+    private String fileName;
+
     public FileReader(String fileName) {
         this.fileName = fileName;
     }
 
-    public String getFileName() {
-
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    private String fileName;
 
     public ArrayList<String> read(){
 
@@ -39,4 +31,11 @@ public class FileReader implements Reader {
 
     }
 
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(final String fileName) {
+        this.fileName = fileName;
+    }
 }
