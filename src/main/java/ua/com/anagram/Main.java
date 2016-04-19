@@ -5,6 +5,8 @@ import ua.com.anagram.read.FileReader;
 import ua.com.anagram.write.ConsoleWriter;
 import ua.com.anagram.write.FileWriter;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +22,6 @@ public class Main {
     public static final String MESSAGE_GOODBYE = "As output. Console(c) or File(f)";
 
     public static void main(String[] args) {
-
         ArrayList<String> words = new ArrayList<>(welcome());
 
         AlgorithmAnagram algorithmAnagram = new AlgorithmAnagram();
@@ -36,17 +37,20 @@ public class Main {
         char select = s.charAt(0);
 
         if (select == CONSOLE) {
+            ConsoleWriter consoleWriter = new ConsoleWriter();
 
-            ConsoleWriter consoleWriter = new ConsoleWriter(anagrams);
-
-            consoleWriter.write();
+            consoleWriter.write(anagrams);
 
         } else if (select == FILE) {
-
-            FileWriter fileWriter = new FileWriter(anagrams, consoleReader.readLine("Please enter filename"));
+            String choice = consoleReader.readLine("Please enter filename or press enter: ");
+            if (choice.equals("")) {
+                FileWriter fileWriter = new FileWriter();
+                fileWriter.write(anagrams);
+            } else {
+                FileWriter fileWriter = new FileWriter(choice);
+                fileWriter.write(anagrams);
+            }
         }
-
-
     }
 
     private static ArrayList<String> welcome() {

@@ -2,6 +2,7 @@ package ua.com.anagram.read;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class FileReader implements Reader {
 
@@ -21,10 +22,7 @@ public class FileReader implements Reader {
         try {
             try (BufferedReader reader = new BufferedReader(new java.io.FileReader(fileName))) {
                 while ((s = reader.readLine()) != null) {
-                    for (String word :
-                            s.split(SPACE)) {
-                        wordsList.add(word);
-                    }
+                    Collections.addAll(wordsList, s.split(SPACE));
                 }
             }
         } catch (IOException e) {
