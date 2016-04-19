@@ -28,8 +28,7 @@ public class FileReader implements Reader {
                     Collections.addAll(wordsList, s.split(SPACE));
                 }
         } catch (FileNotFoundException e) {
-            System.err.println("File not found. Please type correct fileName or Enter to exit: ");
-                // TODO вернуть на выполнение пока не введут существующий файл или не завершат программу
+            System.err.format("File not found: %s%n", e);
             }
         catch (IOException x) {
                System.err.format("IOException: %s%n", x);

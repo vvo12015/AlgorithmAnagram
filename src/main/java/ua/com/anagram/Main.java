@@ -46,6 +46,9 @@ public class Main {
             case (FILE):
                 FileReader fileReader = new FileReader(consoleReader.readLine(MESSAGE_TO_ENTER_FILENAME));
                 words = fileReader.read();
+                if (words.isEmpty()) {
+                    selectSource();
+                }
                 break;
             case (""):
                 System.exit(0);
