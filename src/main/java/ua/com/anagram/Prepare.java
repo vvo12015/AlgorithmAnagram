@@ -5,19 +5,20 @@ import java.util.*;
 
 class Prepare {
 
-    private final List<String> preparedList = new ArrayList<>();
+    public static List<String> prepare (List<String> list) {
 
-    public List<String> prepare (List<String> list) {
+        List<String> preparedList = new ArrayList<>();
 
         for (String word: list) {
             if (isWord(word) && !word.equals("")) {
                 preparedList.add(word.toLowerCase());
             }
         }
+
         return preparedList;
     }
 
-    private boolean isWord(String s) {
+    private static boolean isWord(String s) {
 
         char[] chars = s.toCharArray();
 

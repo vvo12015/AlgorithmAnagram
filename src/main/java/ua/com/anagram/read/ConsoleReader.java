@@ -28,7 +28,7 @@ public class ConsoleReader implements Reader {
         return wordsList;
     }
 
-    private String readLine(String message){
+    public String readLine(String message){
         System.out.println(message);
         return getScanner().nextLine();
     }
