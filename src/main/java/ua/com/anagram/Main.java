@@ -5,75 +5,80 @@ import ua.com.anagram.read.FileReader;
 import ua.com.anagram.write.ConsoleWriter;
 import ua.com.anagram.write.FileWriter;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class Main {
 
-    public static final String FIRST_MESSAGE = "Welcome to our program that implements the algorithm anagrams.";
-    public static final String MESSAGE_BEFORE_SELECT = "Please select the source of words for analysis. Console(c)" +
-            " or reading in file (f) for exit just press Enter";
-    public static final char CONSOLE = 'c';
-    public static final char FILE = 'f';
-    public static final String FOR_ENTER_FILENAME = "Enter file name";
-    public static final String MESSAGE_GOODBYE = "As output. Console(c) or File(f)";
+    public static final String WELCOME_MESSAGE = "Welcome to our program that implements the algorithm " +
+            "for finding anagrams.";
+    public static final String MESSAGE_TO_SELECT_SOURCE = "Please select the source of text for finding " +
+            "anagrams. Console(c) or file (f) or press Enter to exit:";
+    public static final String CONSOLE = "c";
+    public static final String FILE = "f";
+    public static final String MESSAGE_TO_ENTER_FILENAME = "Please enter file name:";
+    public static final String MESSAGE_TO_WRITE_ANAGRAMS = "Please select the destination for output. " +
+            "Console(c) or file(f):";
 
     public static void main(String[] args) {
-        ArrayList<String> words = new ArrayList<>(welcome());
+        System.out.println(WELCOME_MESSAGE);
+
+        List<String> words = new ArrayList<>(selectSource());
 
         AlgorithmAnagram algorithmAnagram = new AlgorithmAnagram();
 
-        goodbye(algorithmAnagram.execute(Prepare.prepare(words)));
+        selectOutput(algorithmAnagram.execute(Prepare.prepare(words)));
     }
 
-    private static void goodbye(Map<String, List<String>> anagrams) {
+    private static List<String> selectSource () {
 
         ConsoleReader consoleReader = new ConsoleReader();
-        String s = consoleReader.readLine(MESSAGE_GOODBYE);
 
-        char select = s.charAt(0);
+        List<String> words = new ArrayList<>();
 
-        if (select == CONSOLE) {
-            ConsoleWriter consoleWriter = new ConsoleWriter();
+        String source = consoleReader.readLine(MESSAGE_TO_SELECT_SOURCE);
 
-            consoleWriter.write(anagrams);
-
-        } else if (select == FILE) {
-            String choice = consoleReader.readLine("Please enter filename or press enter: ");
-            if (choice.equals("")) {
-                FileWriter fileWriter = new FileWriter();
-                fileWriter.write(anagrams);
-            } else {
-                FileWriter fileWriter = new FileWriter(choice);
-                fileWriter.write(anagrams);
-            }
+        switch (source) {
+            case (CONSOLE):
+                words = consoleReader.read();
+                break;
+            case (FILE):
+                FileReader fileReader = new FileReader(consoleReader.readLine(MESSAGE_TO_ENTER_FILENAME));
+                words = fileReader.read();
+                break;
+            case (""):
+                System.exit(0);
+            default:
+                selectSource();
         }
-    }
-
-    private static ArrayList<String> welcome() {
-
-        ConsoleReader consoleReader = new ConsoleReader();
-        ArrayList<String> words = new ArrayList<>();
-
-        System.out.println(FIRST_MESSAGE);
-
-        String s = consoleReader.readLine(MESSAGE_BEFORE_SELECT);
-
-        char select = s.charAt(0);
-
-        if (select == CONSOLE) {
-            words = consoleReader.read();
-
-        } else if (select == FILE) {
-
-            FileReader fileReader = new FileReader(consoleReader.readLine(FOR_ENTER_FILENAME));
-
-            words = fileReader.read();
-        }
-
         return words;
+    }
+
+    private static void selectOutput (Map<String, List<String>> anagrams) {
+
+        ConsoleReader consoleReader = new ConsoleReader();
+
+        String destination = consoleReader.readLine(MESSAGE_TO_WRITE_ANAGRAMS);
+
+        switch (destination) {
+            case (CONSOLE):
+                ConsoleWriter consoleWriter = new ConsoleWriter();
+                consoleWriter.write(anagrams);
+                break;
+            case (FILE):
+                String fileToWrite = consoleReader.readLine("Please type filename to write anagrams or" +
+                        " press enter to write anagrams to default file path: ");
+                if (fileToWrite.equals("")) {
+                    FileWriter fileWriter = new FileWriter();
+                    fileWriter.write(anagrams);
+                } else {
+                    FileWriter fileWriter = new FileWriter(fileToWrite);
+                    fileWriter.write(anagrams);
+                }
+                break;
+            default:
+                selectOutput(anagrams);
+        }
     }
 }

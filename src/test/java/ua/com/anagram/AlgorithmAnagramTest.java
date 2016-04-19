@@ -41,3 +41,4 @@ public class AlgorithmAnagramTest {
         assertEquals(mapToBe, result);
     }
 }
+// кат мама мама мама акт рама шина амам ниша
