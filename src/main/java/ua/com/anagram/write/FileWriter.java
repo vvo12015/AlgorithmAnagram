@@ -16,7 +16,6 @@ import java.util.stream.Collectors;
 public class FileWriter implements Writer {
 
     private Path path;
-    private List<String> writableFile;
 
     public FileWriter() {
         path = Paths.get(System.getProperty("user.home"), "\\AppData\\Local\\Temp", "anagrams.txt");
@@ -27,61 +26,55 @@ public class FileWriter implements Writer {
     }
 
     public void write(Map<String, List<String>> map) {
-
-            if (Files.isRegularFile(path) && Files.isReadable(path) && Files.isExecutable(path)) {
+        if (Files.isRegularFile(path) && Files.isReadable(path) && Files.isExecutable(path)) {
+            writeToFile(map);
+            System.out.println("Text entry is complete");
+        } else {
+            try {
+                Files.createFile(path);
+                System.out.println("File created");
                 writeToFile(map);
                 System.out.println("Text entry is complete");
-            } else {
-                try {
-                    Files.createFile(path);
-                    System.out.println("File created");
-                    writeToFile(map);
-                    System.out.println("Text entry is complete");
-                } catch (FileAlreadyExistsException x) {
-                    System.err.format("file named %s already exists%n", path);
-                } catch (IOException x) {
-                    System.err.format("createFile error: %s%n", x);
-                }
+            } catch (FileAlreadyExistsException x) {
+                System.err.format("file named %s already exists%n", path);
+            } catch (IOException x) {
+                System.err.format("createFile error: %s%n", x);
             }
+        }
     }
 
     public Path getPath() {
         return path;
     }
 
-    public List<String> getWritableFile() {
-        return writableFile;
-    }
-
     private void writeToFile(Map<String, List<String>> map) {
-            Charset charset = Charset.forName("UTF-8");
-            try (BufferedWriter writer = Files.newBufferedWriter(path, charset)) {
-                for (Map.Entry<String, List<String>> entry : map.entrySet()) {
-                    String key = entry.getKey();
-                    List<String> value = entry.getValue();
-                    writer.write("Word: ");
-                    writer.write(key);
-                    writer.write(" -> ");
+        Charset charset = Charset.forName("UTF-8");
+        try (BufferedWriter writer = Files.newBufferedWriter(path, charset)) {
+            for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+                String key = entry.getKey();
+                List<String> value = entry.getValue();
+                writer.write("Word: ");
+                writer.write(key);
+                writer.write(" -> ");
 
-                    if (value.size() == 1) {
-                        writer.write("0");
-                    } else {
-                        writer.write("Anagrams: [");
-                        int counter = 0;
-                        for (String s : value) {
-                            writer.write(" " + s, 0, s.length() + 1);
-                            if (counter < value.size() - 1) {
-                                writer.write(",");
-                                counter++;
-                            }
+                if (value.size() == 1) {
+                    writer.write("0");
+                } else {
+                    writer.write("Anagrams: [");
+                    int counter = 0;
+                    for (String s : value) {
+                        writer.write(" " + s, 0, s.length() + 1);
+                        if (counter < value.size() - 1) {
+                            writer.write(",");
+                            counter++;
                         }
-                        writer.write(" ]");
                     }
-
-                    writer.newLine();
+                    writer.write(" ]");
                 }
-            } catch (IOException x) {
-                System.err.format("IOException: %s%n", x);
+                writer.newLine();
             }
+        } catch (IOException x) {
+            System.err.format("IOException: %s%n", x);
         }
     }
+}

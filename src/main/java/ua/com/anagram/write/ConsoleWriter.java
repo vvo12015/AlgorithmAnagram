@@ -23,7 +23,5 @@ public class ConsoleWriter implements Writer {
 
             System.out.println();
         }
-
     }
-
 }
