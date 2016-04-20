@@ -10,8 +10,8 @@ import java.util.List;
 
 public class FileReader implements Reader {
 
-    public static final String SPACE = " ";
-    private String fileName;
+    private static final String SPACE = " ";
+    private final String fileName;
 
     public FileReader(String fileName) {
         this.fileName = fileName;
@@ -35,13 +35,5 @@ public class FileReader implements Reader {
         }
 
         return wordsList;
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(final String fileName) {
-        this.fileName = fileName;
     }
 }

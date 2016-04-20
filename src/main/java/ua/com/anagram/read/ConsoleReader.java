@@ -8,8 +8,8 @@ import java.util.Scanner;
 public class ConsoleReader implements Reader {
 
     private static final String MESSAGE_FOR_CONSOLE = "Enter words using space";
-    public static final String SPACE_STRING = " ";
-    private Scanner scanner;
+    private static final String SPACE_STRING = " ";
+    private final Scanner scanner;
 
     public ConsoleReader() {
         this.scanner = getScanner();
