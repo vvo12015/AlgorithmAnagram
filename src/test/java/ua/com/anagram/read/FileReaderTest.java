@@ -55,7 +55,7 @@ public class FileReaderTest {
     }
 
     private String createAndFillFile() throws IOException {
-        File file = folder.newFile("tempFle.txt");
+        File file = folder.newFile("tempFile.txt");
         FileWriter writer = new FileWriter(file);
         writer.write("loveFile catFile tacFile actFile ovelFile readFile");
         writer.close();
