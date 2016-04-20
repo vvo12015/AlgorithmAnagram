@@ -23,16 +23,16 @@ public class FileReader implements Reader {
         File file = new File(fileName);
 
         String s;
-            try (BufferedReader reader = new BufferedReader(new java.io.FileReader(file))) {
-                while ((s = reader.readLine()) != null) {
-                    Collections.addAll(wordsList, s.split(SPACE));
-                }
+        try (BufferedReader reader = new BufferedReader(new java.io.FileReader(file))) {
+            while ((s = reader.readLine()) != null) {
+                Collections.addAll(wordsList, s.split(SPACE));
+            }
         } catch (FileNotFoundException e) {
             System.err.println("File not found. Please type correct fileName or Enter to exit: ");
-                // TODO вернуть на выполнение пока не введут существующий файл или не завершат программу
-            }
+            // TODO вернуть на выполнение пока не введут существующий файл или не завершат программу
+        }
         catch (IOException x) {
-               System.err.format("IOException: %s%n", x);
+            System.err.format("IOException: %s%n", x);
         }
 
         return wordsList;
