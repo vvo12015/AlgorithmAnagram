@@ -17,7 +17,7 @@ public class AlgorithmAnagramTest {
     @Before
     public void setUp() throws Exception {
         algorithmObject = new AlgorithmAnagram();
-        validSourceText = getPopulatedSourceText();
+        validSourceText = getValidSourceText();
         validFoundAnagrams = getValidAnagrams();
         emptyMap = getEmptyMap();
     }
@@ -45,7 +45,7 @@ public class AlgorithmAnagramTest {
         return mapToBe;
     }
 
-    private List<String> getPopulatedSourceText() {
+    private List<String> getValidSourceText() {
         List<String> list = new ArrayList<>();
         list.add("кат");
         list.add("мама");
