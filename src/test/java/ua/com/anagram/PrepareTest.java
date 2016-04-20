@@ -1,5 +1,6 @@
 package ua.com.anagram;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -9,9 +10,33 @@ import static org.junit.Assert.assertEquals;
 
 public class PrepareTest {
 
-    private static final List<String> list = new ArrayList<>();
+    private List<String> validSourceList;
+    private List<String> emptySourceList;
+    private List<String> preparedList;
 
-    static {
+    @Before
+    public void setUp() throws Exception {
+        validSourceList = getValidSourceList();
+        preparedList = getPreparedList();
+        emptySourceList = getEmptySourceList();
+    }
+
+    @Test(timeout = 1000)
+    public void testPrepare() throws Exception {
+        final List<String> result = Prepare.prepare(validSourceList);
+
+        assertEquals(preparedList, result);
+    }
+
+    @Test(timeout = 1000)
+    public void testPrepareEmptyList() throws Exception {
+        final List<String> result = Prepare.prepare(emptySourceList);
+
+        assertEquals(new ArrayList<String>(), result);
+    }
+
+    private List<String> getValidSourceList() {
+        List<String> list = new ArrayList<>();
         list.add("brother");
         list.add("brother123");
         list.add("brother-");
@@ -24,23 +49,25 @@ public class PrepareTest {
         list.add("брат-");
         list.add("брат  ");
         list.add("БРАТ");
+        return list;
     }
 
-    @Test (timeout = 1000)
-    public void testPrepare() throws Exception {
+    private List<String> getPreparedList() {
+        List<String> preparedList = new ArrayList<>();
+        preparedList.add("brother");
+        preparedList.add("brother");
+        preparedList.add("brother");
+        preparedList.add("brother");
+        preparedList.add("брат");
+        preparedList.add("брат");
+        preparedList.add("брат");
+        preparedList.add("брат");
+        return preparedList;
+    }
 
-        final List<String> listToBe = new ArrayList<>();
-        listToBe.add("brother");
-        listToBe.add("brother");
-        listToBe.add("brother");
-        listToBe.add("brother");
-        listToBe.add("брат");
-        listToBe.add("брат");
-        listToBe.add("брат");
-        listToBe.add("брат");
-
-        final  List<String> result = Prepare.prepare(list);
-
-        assertEquals(listToBe, result);
+    private List<String> getEmptySourceList() {
+        List<String> emptyList = new ArrayList<>();
+        emptyList.add("");
+        return emptyList;
     }
 }

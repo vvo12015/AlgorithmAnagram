@@ -11,14 +11,14 @@ import java.util.Map;
 
 public class Main {
 
-    public static final String WELCOME_MESSAGE = "Welcome to our program that implements the algorithm " +
+    private static final String WELCOME_MESSAGE = "Welcome to our program that implements the algorithm " +
             "for finding anagrams.";
-    public static final String MESSAGE_TO_SELECT_SOURCE = "Please select the source of text for finding " +
+    private static final String MESSAGE_TO_SELECT_SOURCE = "Please select the source of text for finding " +
             "anagrams. Console(c) or file (f) or press Enter to exit:";
-    public static final String CONSOLE = "c";
-    public static final String FILE = "f";
-    public static final String MESSAGE_TO_ENTER_FILENAME = "Please enter file name:";
-    public static final String MESSAGE_TO_WRITE_ANAGRAMS = "Please select the destination for output. " +
+    private static final String CONSOLE = "c";
+    private static final String FILE = "f";
+    private static final String MESSAGE_TO_ENTER_FILENAME = "Please enter file name:";
+    private static final String MESSAGE_TO_WRITE_ANAGRAMS = "Please select the destination for output. " +
             "Console(c) or file(f):";
 
     public static void main(String[] args) {
@@ -46,6 +46,9 @@ public class Main {
             case (FILE):
                 FileReader fileReader = new FileReader(consoleReader.readLine(MESSAGE_TO_ENTER_FILENAME));
                 words = fileReader.read();
+                if (words.isEmpty()) {
+                    selectSource();
+                }
                 break;
             case (""):
                 System.exit(0);

@@ -7,5 +7,6 @@ Search [anagrams](https://en.wikipedia.org/wiki/Anagram) of the words entered fr
 * [Valentin Vrakin](https://github.com/vvo12015) 
 * [Konstantin Petrov](https://github.com/0k6r)
 * [Roman Burko](https://github.com/B1R1)
-* Dmytro Olshanskyi
-* Yurok Andrey
+
+And fantastic mentor our team:
+* [Tetiana Mokhnenko](https://github.com/masikbelka)
