@@ -20,7 +20,6 @@ public class ConsoleWriter implements Writer {
                 }
                 System.out.print("]");
             }
-
             System.out.println();
         }
     }
