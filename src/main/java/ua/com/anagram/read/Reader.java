@@ -2,7 +2,7 @@ package ua.com.anagram.read;
 
 import java.util.List;
 
-public interface Reader {
+interface Reader {
 
     List<String> read();
 }

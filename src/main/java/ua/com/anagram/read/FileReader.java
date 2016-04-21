@@ -20,6 +20,7 @@ public class FileReader implements Reader {
     public List<String> read(){
 
         List<String> wordsList = new ArrayList<>();
+
         File file = new File(fileName);
 
         String s;
@@ -31,7 +32,7 @@ public class FileReader implements Reader {
             System.err.format("File not found: %s%n", e);
             }
         catch (IOException x) {
-               System.err.format("IOException: %s%n", x);
+            System.err.format("IOException: %s%n", x);
         }
 
         return wordsList;

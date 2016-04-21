@@ -21,7 +21,7 @@ public class FileWriterTest {
 
     private FileWriter fileWriter;
 
-    private Map<String, List<String>> map = new HashMap<>();
+    private final Map<String, List<String>> map = new HashMap<>();
 
     private String tempFilePath;
     private String tempEmptyFilePath;

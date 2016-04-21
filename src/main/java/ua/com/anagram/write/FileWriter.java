@@ -1,18 +1,18 @@
 package ua.com.anagram.write;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
-import java.nio.file.*;
-import java.util.ArrayList;
+import java.nio.file.FileAlreadyExistsException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class FileWriter implements Writer {
 
-    private Path path;
+    private final Path path;
 
     public FileWriter() {
         path = Paths.get(System.getProperty("user.home"), "\\AppData\\Local\\Temp", "anagrams.txt");
@@ -35,10 +35,6 @@ public class FileWriter implements Writer {
                 System.err.format("createFile error: %s%n", x);
             }
         }
-    }
-
-    public Path getPath() {
-        return path;
     }
 
     private void writeToFile(Map<String, List<String>> map) {
