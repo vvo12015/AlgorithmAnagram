@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 public class ConsoleReader implements Reader {
 
-    private static final String MESSAGE_FOR_CONSOLE = "Enter words using space";
-    private static final String SPACE_STRING = " ";
+    private static final String CONSOLE_MESSAGE = "Enter words using space";
+    private static final String SPACE = " ";
     private final Scanner scanner;
 
     public ConsoleReader() {
@@ -19,12 +19,13 @@ public class ConsoleReader implements Reader {
 
         List<String> wordsList = new ArrayList<>();
 
-        String consoleLine = readLine(MESSAGE_FOR_CONSOLE);
+        String consoleLine = readLine(CONSOLE_MESSAGE);
 
-        if (consoleLine.contains(SPACE_STRING)) {
-            Collections.addAll(wordsList, consoleLine.split(SPACE_STRING));
+        if (consoleLine.contains(SPACE)) {
+            Collections.addAll(wordsList, consoleLine.split(SPACE));
         }
         else Collections.addAll(wordsList, consoleLine);
+
         return wordsList;
     }
 
