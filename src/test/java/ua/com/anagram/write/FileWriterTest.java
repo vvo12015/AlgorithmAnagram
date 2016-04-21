@@ -33,7 +33,6 @@ public class FileWriterTest {
     public void setUp() throws IOException {
         tempFilePath = createAndFillFile();
         tempEmptyFilePath = createEmptyFile();
-
         fileWriter = new FileWriter(tempFilePath);
 
         map.put("cat", Arrays.asList("cat", "tac", "act"));
@@ -63,7 +62,6 @@ public class FileWriterTest {
 
     @Test (timeout = 1000)
     public void testReadEmptyFile() throws Exception {
-
         fileWriter.write(getEmptyMap());
 
         final String path = Paths.get(tempEmptyFilePath)
