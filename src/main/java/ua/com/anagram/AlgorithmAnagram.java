@@ -7,7 +7,7 @@ public class AlgorithmAnagram implements Algorithm {
     private final Map<String, List<String>> map;
 
     public AlgorithmAnagram() {
-        this.map = Collections.emptyMap();
+        this.map = new HashMap<>();
     }
 
     @Override
