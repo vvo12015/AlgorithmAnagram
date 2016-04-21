@@ -5,5 +5,5 @@ import java.util.Map;
 
 public interface Writer {
 
-    String write();
+    void write(Map<String, List<String>> map);
 }
