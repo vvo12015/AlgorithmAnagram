@@ -27,9 +27,9 @@ public class Main {
 
         List<String> words = new ArrayList<>(selectSource());
 
-        AlgorithmAnagram algorithmAnagram = new AlgorithmAnagram();
+        AnagramAlgorithm algorithmAnagram = new AnagramAlgorithm();
 
-        selectOutput(algorithmAnagram.execute(Prepare.prepare(words)));
+         selectOutput(algorithmAnagram.execute(PrepareListForAlgorithm.prepare(words)));
     }
 
     private static List<String> selectSource () {

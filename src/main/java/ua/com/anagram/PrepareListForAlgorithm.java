@@ -2,7 +2,7 @@ package ua.com.anagram;
 
 import java.util.*;
 
-class Prepare {
+class PrepareListForAlgorithm {
 
     public static List<String> prepare (List<String> list) {
 

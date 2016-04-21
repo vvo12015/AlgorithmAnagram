@@ -8,7 +8,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class PrepareTest {
+public class PrepareListForAlgorithmTest {
 
     private List<String> validSourceList;
     private List<String> emptySourceList;
@@ -23,14 +23,14 @@ public class PrepareTest {
 
     @Test(timeout = 1000)
     public void testPrepare() throws Exception {
-        final List<String> result = Prepare.prepare(validSourceList);
+        final List<String> result = PrepareListForAlgorithm.prepare(validSourceList);
 
         assertEquals(preparedList, result);
     }
 
     @Test(timeout = 1000)
     public void testPrepareEmptyList() throws Exception {
-        final List<String> result = Prepare.prepare(emptySourceList);
+        final List<String> result = PrepareListForAlgorithm.prepare(emptySourceList);
 
         assertEquals(new ArrayList<String>(), result);
     }

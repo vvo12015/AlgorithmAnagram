@@ -9,14 +9,14 @@ import static org.junit.Assert.assertEquals;
 
 public class AlgorithmAnagramTest {
 
-    private AlgorithmAnagram algorithmObject;
+    private AnagramAlgorithm algorithmObject;
     private List<String> validSourceText;
     private Map<String, List<String>> validFoundAnagrams;
     private Map<String, List<String>> emptyMap;
 
     @Before
     public void setUp() throws Exception {
-        algorithmObject = new AlgorithmAnagram();
+        algorithmObject = new AnagramAlgorithm();
         validSourceText = getValidSourceText();
         validFoundAnagrams = getValidAnagrams();
         emptyMap = getEmptyMap();

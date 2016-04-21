@@ -1,0 +1,4 @@
+Word: qwer -> 0
+Word: text -> Anagrams: [ text, xett, txte ]
+Word: mama -> Anagrams: [ mama, amam, aamm ]
+Word: poiu -> 0

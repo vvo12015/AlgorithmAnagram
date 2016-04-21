@@ -2,11 +2,11 @@ package ua.com.anagram;
 
 import java.util.*;
 
-public class AlgorithmAnagram implements Algorithm {
+public class AnagramAlgorithm implements Algorithm {
 
     private final Map<String, List<String>> map;
 
-    public AlgorithmAnagram() {
+    public AnagramAlgorithm() {
         this.map = new HashMap<>();
     }
 
