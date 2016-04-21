@@ -19,9 +19,9 @@ class Prepare {
         return preparedList;
     }
 
-    private static boolean isWord(String s) {
+    private static boolean isWord(String name) {
 
-        char[] chars = s.toCharArray();
+        char[] chars = name.toCharArray();
 
         for (char c : chars) {
             if(!Character.isLetter(c)) {
