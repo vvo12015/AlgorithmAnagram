@@ -22,6 +22,7 @@ public class Main {
             "Console(c) or file(f):";
 
     public static void main(String[] args) {
+
         System.out.println(WELCOME_MESSAGE);
 
         List<String> words = new ArrayList<>(selectSource());
