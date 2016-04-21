@@ -66,18 +66,18 @@ public class Main {
 
         switch (destination) {
             case (CONSOLE):
-                ConsoleWriter consoleWriter = new ConsoleWriter();
-                consoleWriter.write(anagrams);
+                ConsoleWriter consoleWriter = new ConsoleWriter(anagrams);
+                System.out.println(consoleWriter.write());
                 break;
             case (FILE):
                 String fileToWrite = consoleReader.readLine("Please type filename to write anagrams or" +
                         " press enter to write anagrams to default file path: ");
                 if (fileToWrite.equals("")) {
-                    FileWriter fileWriter = new FileWriter();
-                    fileWriter.write(anagrams);
+                    FileWriter fileWriter = new FileWriter(anagrams);
+                    fileWriter.write();
                 } else {
-                    FileWriter fileWriter = new FileWriter(fileToWrite);
-                    fileWriter.write(anagrams);
+                    FileWriter fileWriter = new FileWriter(anagrams, fileToWrite);
+                    fileWriter.write();
                 }
                 break;
             default:

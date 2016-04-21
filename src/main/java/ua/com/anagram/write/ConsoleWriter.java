@@ -5,22 +5,43 @@ import java.util.Map;
 
 public class ConsoleWriter implements Writer {
 
-    public void write(Map<String, List<String>> map) {
+    private Map<String, List<String>> map;
+
+    public ConsoleWriter(Map<String, List<String>> map) {
+        this.map = map;
+    }
+
+    @Override
+    public String write() {
+        return getText(map);
+    }
+
+    private String getText(Map<String, List<String>> map) {
+        StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, List<String>> entry : map.entrySet()) {
             String  key = entry.getKey();
             List<String> value = entry.getValue();
 
-            System.out.printf("Word: %s -> ", key);
+            sb.append("Word: ").append(key).append(" -> ");
             if (value.size() == 1) {
-                System.out.print(0);
+                sb.append(0);
             } else {
-                System.out.print("Anagrams: [ ");
+                sb.append("Anagrams: [ ");
+                int counter = 0;
                 for (String s : value) {
-                    System.out.print(s + ", ");
+                    sb.append(s);
+                    if (counter < value.size() - 1) {
+                        sb.append(",");
+                        counter++;
+                    }
+                    sb.append(" ");
+
                 }
-                System.out.print("]");
+                sb.append("]");
             }
-            System.out.println();
+            sb.append(System.getProperty("line.separator"));
         }
+        return sb.toString();
     }
+
 }

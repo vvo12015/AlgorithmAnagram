@@ -11,7 +11,7 @@ import static org.mockito.Mockito.when;
 
 public class ConsoleReaderTest extends Assert {
 
-    private final ArrayList<String> listResult = new ArrayList<String>();
+    private final ArrayList<String> listResult = new ArrayList<>();
 
     @Before
     public void setUpRead(){
@@ -22,7 +22,6 @@ public class ConsoleReaderTest extends Assert {
         listResult.add("ovel");
         listResult.add("read");
     }
-
 
     @Test
     public void read() throws Exception {
