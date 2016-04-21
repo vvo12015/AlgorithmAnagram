@@ -50,25 +50,27 @@ public class FileWriter implements Writer {
             for (Map.Entry<String, List<String>> entry : map.entrySet()) {
                 String key = entry.getKey();
                 List<String> value = entry.getValue();
-                writer.write("Word: ");
-                writer.write(key);
-                writer.write(" -> ");
+                if (!"".equals(key) || !value.isEmpty()) {
+                    writer.write("Word: ");
+                    writer.write(key);
+                    writer.write(" -> ");
 
-                if (value.size() == 1) {
-                    writer.write("0");
-                } else {
-                    writer.write("Anagrams: [");
-                    int counter = 0;
-                    for (String s : value) {
-                        writer.write(" " + s, 0, s.length() + 1);
-                        if (counter < value.size() - 1) {
-                            writer.write(",");
-                            counter++;
+                    if (value.size() == 1) {
+                        writer.write("0");
+                    } else {
+                        writer.write("Anagrams: [");
+                        int counter = 0;
+                        for (String s : value) {
+                            writer.write(" " + s, 0, s.length() + 1);
+                            if (counter < value.size() - 1) {
+                                writer.write(",");
+                                counter++;
+                            }
                         }
+                        writer.write(" ]");
                     }
-                    writer.write(" ]");
+                    writer.newLine();
                 }
-                writer.newLine();
             }
         } catch (IOException x) {
             System.err.format("IOException: %s%n", x);
