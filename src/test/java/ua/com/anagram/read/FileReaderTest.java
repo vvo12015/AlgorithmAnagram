@@ -29,14 +29,14 @@ public class FileReaderTest {
         emptyFileName = createEmptyFile();
     }
 
-    @Test
+    @Test (timeout = 1000)
     public void testRead() throws Exception {
         FileReader fileReader = new FileReader(validFileName);
         final List<String> result = fileReader.read();
         assertEquals(validList, result);
     }
 
-    @Test
+    @Test (timeout = 1000)
     public void testReadEmptyFile() throws Exception {
         FileReader fileReader = new FileReader(emptyFileName);
         final List<String> result = fileReader.read();

@@ -24,7 +24,7 @@ public class ConsoleReaderTest extends Assert {
     }
 
 
-    @Test
+    @Test (timeout = 1000)
     public void read() throws Exception {
         Reader reader = mock(Reader.class);
 

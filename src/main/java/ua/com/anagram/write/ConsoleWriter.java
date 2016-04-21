@@ -15,8 +15,14 @@ public class ConsoleWriter implements Writer {
                 System.out.print(0);
             } else {
                 System.out.print("Anagrams: [ ");
+                int counter = 0;
                 for (String s : value) {
-                    System.out.print(s + ", ");
+                    System.out.print(s);
+                    if (counter < value.size() - 1) {
+                        System.out.print(",");
+                        counter++;
+                    }
+                    System.out.print(" ");
                 }
                 System.out.print("]");
             }
