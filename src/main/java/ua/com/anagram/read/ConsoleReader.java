@@ -24,6 +24,7 @@ public class ConsoleReader implements Reader {
         if (consoleLine.contains(SPACE_STRING)) {
             Collections.addAll(wordsList, consoleLine.split(SPACE_STRING));
         }
+        else Collections.addAll(wordsList, consoleLine);
         return wordsList;
     }
 
